@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: user-center-backend-springboot-practice
+  datasource:
+    url: jdbc:mysql://localhost:3306/usercenter?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=UTF-8
+    username: root
+    password: 1213
+    driver-class-name: com.mysql.cj.jdbc.Driver
