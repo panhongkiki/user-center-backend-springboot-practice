@@ -2,7 +2,19 @@ spring:
   application:
     name: user-center-backend-springboot-practice
   datasource:
-    url: jdbc:mysql://localhost:3306/usercenter?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:3306/usercenter?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
     username: root
-    password: 1213
+    password: ${DB_PASSWORD:1213}
     driver-class-name: com.mysql.cj.jdbc.Driver
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: false # 这里默认为true，改为false后将不会把数据库中字段的下划线
+  global-config:
+    db-config:
+      logic-delete-field: isDelete # 这里的名称是实体类中属性名称
+      logic-delete-value: 1
+      logic-not-delete-value: 0
